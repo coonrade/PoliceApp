@@ -1,0 +1,614 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>My Page</title> 
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css">
+	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+	
+	<!--
+	<link rel="stylesheet" href="jqm/jquery.mobile-1.3.1.min.css">
+	<script src="jq/jquery-2.0.0.min.js"></script>
+	<script src="jqm/jquery.mobile-1.3.1.min.js"></script>
+	-->
+	
+<script type="text/javascript">
+//loader animation
+$( document ).on( "click", ".show-page-loading-msg", function() {
+    var $this = $( this ),
+        theme = $this.jqmData( "theme" ) || $.mobile.loader.prototype.options.theme,
+        msgText = $this.jqmData( "msgtext" ) || $.mobile.loader.prototype.options.text,
+        textVisible = $this.jqmData( "textvisible" ) || $.mobile.loader.prototype.options.textVisible,
+        textonly = !!$this.jqmData( "textonly" );
+        html = $this.jqmData( "html" ) || "";
+    $.mobile.loading( "show", {
+            text: msgText,
+            textVisible: textVisible,
+            theme: theme,
+            textonly: textonly,
+            html: html
+    });
+})
+.on( "click", ".hide-page-loading-msg", function() {
+    $.mobile.loading( "hide" );
+});
+
+$(document).ready(clearPage());
+
+
+function clearPage(){
+	
+	//file = document.getElementById("file");
+	//console.log("TEST MOTHERFUCKER");
+	//console.dir(file);
+	//document.getElementById("message").value="";
+
+}
+
+$('.webRedirectButton').click(function() {
+  navigator.app.loadUrl('http://www.google.com', { openExternal:true } ); 
+});
+
+</script>
+
+    
+<style>
+
+.panel-content { padding:15px; }
+
+.myButtonLink {
+	display: block;
+	width: 100px;
+	height: 100px;
+	background: url('img/leaf.png') bottom;
+	text-indent: -99999px;
+}
+.myButtonLink:active {
+	background-position: 0 0;
+	
+}
+
+
+
+.websiteButton {
+	display: block;
+	width: 100px;
+	height: 100px;
+	background: url('img/website.png') bottom;
+	text-indent: -99999px;
+}
+.websiteButton:active {
+	background-position: 0 0;
+	
+}
+
+.phoneButton {
+	display: block;
+	width: 100px;
+	height: 100px;
+	background: url('img/phone.png') bottom;
+	text-indent: -99999px;
+}
+.phoneButton:active {
+	background-position: 0 0;
+	
+}
+
+.notepadButton {
+	display: block;
+	width: 100px;
+	height: 100px;
+	background: url('img/notepad.png') bottom;
+	text-indent: -99999px;
+}
+.notepadButton:active {
+	background-position: 0 0;
+	
+}
+
+.cameraButton {
+	display: block;
+	width: 100px;
+	height: 100px;
+	background: url('img/camera.png') bottom;
+	text-indent: -99999px;
+}
+.cameraButton:active {
+	background-position: 0 0;
+	
+}
+
+#file {
+	/*opacity:0.0;*/
+	color:#0C3;
+}
+
+#attachmentButton {
+	background-color:#0C3;
+}
+
+
+</style>
+    
+    
+</head> 
+<body> 
+
+
+
+<div data-role="page" id="home">
+
+	<div data-role="header">
+    	<a href="#" data-rel="back" data-icon="back" class="ui-btn-left">Back</a>
+		<h1>Police App</h1>
+    	<a href="#defaultpanel" data-icon="search" class="ui-btn-right">Menu</a>
+	</div><!-- /header -->
+
+    <div data-role="content" style="position: absolute; top: 25%; left: 25%; margin-top: -50px; margin-left: -50px;">	
+	
+        <a class="websiteButton" href="http://police.ucmerced.edu/" data-role="button" >Leaf</a>
+        
+	</div><!-- /content -->
+    
+    
+    
+    <div data-role="content" style="position: absolute; top: 25%; right: 25%; margin-top: -50px; margin-right: -50px;"">
+    
+    	<a class="phoneButton" href="tel:12092282677" data-role="button" >Leaf</a>
+    
+    </div>
+    
+    <div data-role="content" style="position: absolute; bottom: 25%; left: 25%; margin-bottom: -50px; margin-left: -50px;"">	
+	
+    	<a class="notepadButton" href="#report" data-role="button" >Leaf</a>
+        
+	</div><!-- /content -->
+    
+    
+    
+    <div data-role="content" style="position: absolute; bottom: 25%; right: 25%; margin-bottom: -50px; margin-right: -50px;"">
+    
+    	<a class="cameraButton" href="#attachment" data-role="button" data-transition="slide">Leaf</a>
+    
+    </div>
+    
+    
+    <div data-role="footer" style="position: absolute; bottom: 0%; width: 100%">
+		<h1>Police Footer</h1>
+	</div>
+    
+    <div data-role="panel" id="defaultpanel" data-theme="b" data-position="right">
+    	<div class="panel-content">
+        
+        	<ul data-role="listview" data-filter="true" data-filter-placeholder="Search menu" data-inset="true">
+    		<li data-role="list-divider">Personal Safety Resources</li>
+    		<li><a href="#menu1">Crime Documentation</a></li>
+    		<li><a href="#menu2">Crime Statistics</a></li>
+    		<li><a href="#menu3">Safety Information</a></li>
+    		<li><a href="#menu4">Brief Profile of Client</a></li>
+    		<li data-role="list-divider">Safety Services</li>
+    		<li><a href="#menu5">Lost and Found</a></li>
+   			<li><a href="#menu6">Victim Services</a></li>
+   			<li><a href="#menu7">Bike and Electronic Registration</a></li>
+    		<li><a href="#menu8">Hotlines</a></li>
+			</ul>
+      </div><!-- /content wrapper for padding -->
+ 
+    </div><!-- /defaultpanel -->
+    
+</div><!-- /home page -->
+
+
+
+<div data-role="page" id="report" data-transition="slide" >
+
+	<div data-role="header">
+    	<a href="#" data-rel="back" data-icon="back" class="ui-btn-left">Back</a>
+		<h1>Police App</h1>
+    	<a href="#defaultpanel" data-icon="search" class="ui-btn-right">Menu</a>
+	</div><!-- /header -->
+
+	<div data-role="content">
+        <form enctype="multipart/form-data" action="http://russianator.alwaysdata.net/email.php" method="post">
+        
+        <div>
+            <label for="name">Your Name:</label> 
+            <textarea name="name" id="name"></textarea>
+        </div>
+        
+        <div>
+            <label for="numberContact">Phone Number or Email:</label> 
+            <textarea name="numberContact" id="numberContact"></textarea>
+        </div>
+        
+        
+        <div>
+            <p>Select the type of incident or crime that occurred:</p>
+            <input type="checkbox" name="checkbox-1" id="checkbox-1" class="custom" />
+            <label for="checkbox-1">Drugs</label>
+    
+            <input type="checkbox" name="checkbox-2" id="checkbox-2" class="custom" />
+            <label for="checkbox-2">Theft</label>
+    
+            <input type="checkbox" name="checkbox-3" id="checkbox-3" class="custom" />
+            <label for="checkbox-3">Fraud</label>
+    
+            <input type="checkbox" name="checkbox-4" id="checkbox-4" class="custom" />
+            <label for="checkbox-4">Assault</label>
+    
+            <input type="checkbox" name="checkbox-5" id="checkbox-5" class="custom" />
+            <label for="checkbox-5">Other</label>
+        </div>
+        
+        
+        <div>
+            <label for="incidentLocation">Enter the location or address where the incident occurred:</label> 
+            <textarea name="incidentLocation" id="incidentLocation"></textarea>
+        </div>
+        
+        <div>
+            <label for="incidentTime">Dates and times when the incident occurred:</label> 
+            <textarea name="incidentTime" id="incidentTime"></textarea>
+        </div>
+        
+        
+        <div>
+            <label for="summary">Give a summary of the incident or crime that occured:</label> 
+            <textarea name="summary" id="summary" cols="20" rows="8"></textarea>
+        </div>
+        
+        
+        <div>
+            <input type="submit" value="submit" name="submit" id="submit" class="show-page-loading-msg" data-theme="d" data-textonly="false" data-textvisible="false" data-msgtext="">
+        </div>
+        
+        </form> 
+    </div>
+    
+    
+    
+    <div data-role="panel" id="defaultpanel" data-theme="b" data-position="right">
+    	<div class="panel-content">
+        
+        	<ul data-role="listview" data-filter="true" data-filter-placeholder="Search menu" data-inset="true">
+    		<li data-role="list-divider">Personal Safety Resources</li>
+    		<li><a href="#menu1">Crime Documentation</a></li>
+    		<li><a href="#menu2">Crime Statistics</a></li>
+    		<li><a href="#menu3">Safety Information</a></li>
+    		<li><a href="#menu4">Brief Profile of Client</a></li>
+    		<li data-role="list-divider">Safety Services</li>
+    		<li><a href="#menu5">Lost and Found</a></li>
+   			<li><a href="#menu6">Victim Services</a></li>
+   			<li><a href="#menu7">Bike and Electronic Registration</a></li>
+    		<li><a href="#menu8">Hotlines</a></li>
+			</ul>
+      </div><!-- /content wrapper for padding -->
+ 
+    </div><!-- /defaultpanel -->
+       
+</div>
+
+
+<div data-role="page" id="attachment" data-transition="slide" >
+
+	<div data-role="header">
+    	<a href="#" data-rel="back" data-icon="back" class="ui-btn-left">Back</a>
+		<h1>Police App</h1>
+    	<a href="#defaultpanel" data-icon="search" class="ui-btn-right">Menu</a>
+	</div><!-- /header -->
+
+	<div data-role="content">
+        <form enctype="multipart/form-data" action="http://russianator.alwaysdata.net/upload.php" method="post">
+        
+        <div>
+            <label for="message">Message:</label> 
+            <textarea name="message" id="message" cols="20" rows="8"></textarea>
+        </div>
+        
+       <div>
+            <label for="file">File</label> 
+            <input type="file" name="file" id="file">
+        </div>
+        
+        <div>
+            <input type="submit" value="submit" name="submit" id="submit" class="show-page-loading-msg" data-theme="d" data-textonly="false" data-textvisible="false" data-msgtext="">
+        </div>
+        
+        </form> 
+    </div>
+    
+    
+    
+    <div data-role="panel" id="defaultpanel" data-theme="b" data-position="right">
+    	<div class="panel-content">
+        
+        	<ul data-role="listview" data-filter="true" data-filter-placeholder="Search menu" data-inset="true">
+    		<li data-role="list-divider">Personal Safety Resources</li>
+    		<li><a href="#menu1">Crime Documentation</a></li>
+    		<li><a href="#menu2">Crime Statistics</a></li>
+    		<li><a href="#menu3">Safety Information</a></li>
+    		<li><a href="#menu4">Brief Profile of Client</a></li>
+    		<li data-role="list-divider">Safety Services</li>
+    		<li><a href="#menu5">Lost and Found</a></li>
+   			<li><a href="#menu6">Victim Services</a></li>
+   			<li><a href="#menu7">Bike and Electronic Registration</a></li>
+    		<li><a href="#menu8">Hotlines</a></li>
+			</ul>
+      </div><!-- /content wrapper for padding -->
+ 
+    </div><!-- /defaultpanel -->
+          
+</div>
+
+
+
+
+
+<div data-role="page" id="menu1">
+  <div data-role="header">
+    <a href="#" data-rel="back" data-icon="back" class="ui-btn-left">Back</a>
+    <h1>Police App</h1>
+    <a href="#defaultpanel" data-icon="search" class="ui-btn-right">Menu</a> 
+  </div>
+  
+  <div data-role="content">
+    <p>This is where crime documentation will go!</p>
+  </div>
+    
+	<div data-role="panel" id="defaultpanel" data-theme="b" data-position="right">
+    	<div class="panel-content">
+        
+        	<ul data-role="listview" data-filter="true" data-filter-placeholder="Search menu" data-inset="true">
+    		<li data-role="list-divider">Personal Safety Resources</li>
+    		<li><a href="#menu1">Crime Documentation</a></li>
+    		<li><a href="#menu2">Crime Statistics</a></li>
+    		<li><a href="#menu3">Safety Information</a></li>
+    		<li><a href="#menu4">Brief Profile of Client</a></li>
+    		<li data-role="list-divider">Safety Services</li>
+    		<li><a href="#menu5">Lost and Found</a></li>
+   			<li><a href="#menu6">Victim Services</a></li>
+   			<li><a href="#menu7">Bike and Electronic Registration</a></li>
+    		<li><a href="#menu8">Hotlines</a></li>
+			</ul>
+        
+      </div><!-- /content wrapper for padding -->
+ 
+    </div><!-- /defaultpanel -->
+</div> <!-- /menu1 -->
+
+
+<div data-role="page" id="menu2">
+  <div data-role="header">
+    <a href="#" data-rel="back" data-icon="back" class="ui-btn-left">Back</a>
+    <h1>Police App</h1>
+    <a href="#defaultpanel" data-icon="search" class="ui-btn-right">Menu</a> 
+  </div>
+  
+  <div data-role="content">
+    <p>This is where crime statistics will go!</p>
+  </div>
+    
+	<div data-role="panel" id="defaultpanel" data-theme="b" data-position="right">
+    	<div class="panel-content">
+        
+        	<ul data-role="listview" data-filter="true" data-filter-placeholder="Search menu" data-inset="true">
+    		<li data-role="list-divider">Personal Safety Resources</li>
+    		<li><a href="#menu1">Crime Documentation</a></li>
+    		<li><a href="#menu2">Crime Statistics</a></li>
+    		<li><a href="#menu3">Safety Information</a></li>
+    		<li><a href="#menu4">Brief Profile of Client</a></li>
+    		<li data-role="list-divider">Safety Services</li>
+    		<li><a href="#menu5">Lost and Found</a></li>
+   			<li><a href="#menu6">Victim Services</a></li>
+   			<li><a href="#menu7">Bike and Electronic Registration</a></li>
+    		<li><a href="#menu8">Hotlines</a></li>
+			</ul>
+        
+      </div><!-- /content wrapper for padding -->
+ 
+    </div><!-- /defaultpanel -->
+</div> <!-- /menu2 -->
+
+
+<div data-role="page" id="menu3">
+  <div data-role="header">
+    <a href="#" data-rel="back" data-icon="back" class="ui-btn-left">Back</a>
+    <h1>Police App</h1>
+    <a href="#defaultpanel" data-icon="search" class="ui-btn-right">Menu</a> 
+  </div>
+  
+  <div data-role="content">
+    <p>This is where safety information will go!</p>
+  </div>
+    
+	<div data-role="panel" id="defaultpanel" data-theme="b" data-position="right">
+    	<div class="panel-content">
+        
+        	<ul data-role="listview" data-filter="true" data-filter-placeholder="Search menu" data-inset="true">
+    		<li data-role="list-divider">Personal Safety Resources</li>
+    		<li><a href="#menu1">Crime Documentation</a></li>
+    		<li><a href="#menu2">Crime Statistics</a></li>
+    		<li><a href="#menu3">Safety Information</a></li>
+    		<li><a href="#menu4">Brief Profile of Client</a></li>
+    		<li data-role="list-divider">Safety Services</li>
+    		<li><a href="#menu5">Lost and Found</a></li>
+   			<li><a href="#menu6">Victim Services</a></li>
+   			<li><a href="#menu7">Bike and Electronic Registration</a></li>
+    		<li><a href="#menu8">Hotlines</a></li>
+			</ul>
+        
+      </div><!-- /content wrapper for padding -->
+ 
+    </div><!-- /defaultpanel -->
+</div> <!-- /menu3 -->
+
+
+<div data-role="page" id="menu4">
+  <div data-role="header">
+    <a href="#" data-rel="back" data-icon="back" class="ui-btn-left">Back</a>
+    <h1>Police App</h1>
+    <a href="#defaultpanel" data-icon="search" class="ui-btn-right">Menu</a> 
+  </div>
+  
+  <div data-role="content">
+    <p>This is where brief profile of client will go!</p>
+  </div>
+    
+	<div data-role="panel" id="defaultpanel" data-theme="b" data-position="right">
+    	<div class="panel-content">
+        
+        	<ul data-role="listview" data-filter="true" data-filter-placeholder="Search menu" data-inset="true">
+    		<li data-role="list-divider">Personal Safety Resources</li>
+    		<li><a href="#menu1">Crime Documentation</a></li>
+    		<li><a href="#menu2">Crime Statistics</a></li>
+    		<li><a href="#menu3">Safety Information</a></li>
+    		<li><a href="#menu4">Brief Profile of Client</a></li>
+    		<li data-role="list-divider">Safety Services</li>
+    		<li><a href="#menu5">Lost and Found</a></li>
+   			<li><a href="#menu6">Victim Services</a></li>
+   			<li><a href="#menu7">Bike and Electronic Registration</a></li>
+    		<li><a href="#menu8">Hotlines</a></li>
+			</ul>
+        
+      </div><!-- /content wrapper for padding -->
+ 
+    </div><!-- /defaultpanel -->
+</div> <!-- /menu4 -->
+
+
+<div data-role="page" id="menu5">
+  <div data-role="header">
+    <a href="#" data-rel="back" data-icon="back" class="ui-btn-left">Back</a>
+    <h1>Police App</h1>
+    <a href="#defaultpanel" data-icon="search" class="ui-btn-right">Menu</a> 
+  </div>
+  
+  <div data-role="content">
+    <p>This is where lost and found will go!</p>
+  </div>
+    
+	<div data-role="panel" id="defaultpanel" data-theme="b" data-position="right">
+    	<div class="panel-content">
+        
+        	<ul data-role="listview" data-filter="true" data-filter-placeholder="Search menu" data-inset="true">
+    		<li data-role="list-divider">Personal Safety Resources</li>
+    		<li><a href="#menu1">Crime Documentation</a></li>
+    		<li><a href="#menu2">Crime Statistics</a></li>
+    		<li><a href="#menu3">Safety Information</a></li>
+    		<li><a href="#menu4">Brief Profile of Client</a></li>
+    		<li data-role="list-divider">Safety Services</li>
+    		<li><a href="#menu5">Lost and Found</a></li>
+   			<li><a href="#menu6">Victim Services</a></li>
+   			<li><a href="#menu7">Bike and Electronic Registration</a></li>
+    		<li><a href="#menu8">Hotlines</a></li>
+			</ul>
+        
+      </div><!-- /content wrapper for padding -->
+ 
+    </div><!-- /defaultpanel -->
+</div> <!-- /menu5 -->
+
+
+<div data-role="page" id="menu6">
+  <div data-role="header">
+    <a href="#" data-rel="back" data-icon="back" class="ui-btn-left">Back</a>
+    <h1>Police App</h1>
+    <a href="#defaultpanel" data-icon="search" class="ui-btn-right">Menu</a> 
+  </div>
+  
+  <div data-role="content">
+    <p>This is where victim services will go!</p>
+  </div>
+    
+	<div data-role="panel" id="defaultpanel" data-theme="b" data-position="right">
+    	<div class="panel-content">
+        
+        	<ul data-role="listview" data-filter="true" data-filter-placeholder="Search menu" data-inset="true">
+    		<li data-role="list-divider">Personal Safety Resources</li>
+    		<li><a href="#menu1">Crime Documentation</a></li>
+    		<li><a href="#menu2">Crime Statistics</a></li>
+    		<li><a href="#menu3">Safety Information</a></li>
+    		<li><a href="#menu4">Brief Profile of Client</a></li>
+    		<li data-role="list-divider">Safety Services</li>
+    		<li><a href="#menu5">Lost and Found</a></li>
+   			<li><a href="#menu6">Victim Services</a></li>
+   			<li><a href="#menu7">Bike and Electronic Registration</a></li>
+    		<li><a href="#menu8">Hotlines</a></li>
+			</ul>
+        
+      </div><!-- /content wrapper for padding -->
+ 
+    </div><!-- /defaultpanel -->
+</div> <!-- /menu6 -->
+
+
+<div data-role="page" id="menu7">
+  <div data-role="header">
+    <a href="#" data-rel="back" data-icon="back" class="ui-btn-left">Back</a>
+    <h1>Police App</h1>
+    <a href="#defaultpanel" data-icon="search" class="ui-btn-right">Menu</a> 
+  </div>
+  
+  <div data-role="content">
+    <p>This is where bike and electronic registration will go!</p>
+  </div>
+    
+	<div data-role="panel" id="defaultpanel" data-theme="b" data-position="right">
+    	<div class="panel-content">
+        
+        	<ul data-role="listview" data-filter="true" data-filter-placeholder="Search menu" data-inset="true">
+    		<li data-role="list-divider">Personal Safety Resources</li>
+    		<li><a href="#menu1">Crime Documentation</a></li>
+    		<li><a href="#menu2">Crime Statistics</a></li>
+    		<li><a href="#menu3">Safety Information</a></li>
+    		<li><a href="#menu4">Brief Profile of Client</a></li>
+    		<li data-role="list-divider">Safety Services</li>
+    		<li><a href="#menu5">Lost and Found</a></li>
+   			<li><a href="#menu6">Victim Services</a></li>
+   			<li><a href="#menu7">Bike and Electronic Registration</a></li>
+    		<li><a href="#menu8">Hotlines</a></li>
+			</ul>
+        
+      </div><!-- /content wrapper for padding -->
+ 
+    </div><!-- /defaultpanel -->
+</div> <!-- /menu7 -->
+
+
+<div data-role="page" id="menu8">
+  <div data-role="header">
+    <a href="#" data-rel="back" data-icon="back" class="ui-btn-left">Back</a>
+    <h1>Police App</h1>
+    <a href="#defaultpanel" data-icon="search" class="ui-btn-right">Menu</a> 
+  </div>
+  
+  <div data-role="content">
+    <p>This is where hotlines will go!</p>
+  </div>
+    
+	<div data-role="panel" id="defaultpanel" data-theme="b" data-position="right">
+    	<div class="panel-content">
+        
+        	<ul data-role="listview" data-filter="true" data-filter-placeholder="Search menu" data-inset="true">
+    		<li data-role="list-divider">Personal Safety Resources</li>
+    		<li><a href="#menu1">Crime Documentation</a></li>
+    		<li><a href="#menu2">Crime Statistics</a></li>
+    		<li><a href="#menu3">Safety Information</a></li>
+    		<li><a href="#menu4">Brief Profile of Client</a></li>
+    		<li data-role="list-divider">Safety Services</li>
+    		<li><a href="#menu5">Lost and Found</a></li>
+   			<li><a href="#menu6">Victim Services</a></li>
+   			<li><a href="#menu7">Bike and Electronic Registration</a></li>
+    		<li><a href="#menu8">Hotlines</a></li>
+			</ul>
+        
+      </div><!-- /content wrapper for padding -->
+ 
+    </div><!-- /defaultpanel -->
+</div> <!-- /menu8 -->
+
+
+</body>
+</html>
